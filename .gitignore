@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+/server/node_modules
+
+# Local configuration files
+/server/config.json
+
+# Environment files
+.env
+
+# macOS specific files
+.DS_Store 

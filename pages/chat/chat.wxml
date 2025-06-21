@@ -1,0 +1,43 @@
+<!--pages/chat/chat.wxml-->
+<view class="chat-container">
+  <!-- Welcome Screen -->
+  <view wx:if="{{messages.length <= 1}}" class="welcome-container">
+    <view class="title-section">
+      <view class="main-title">智墨网球</view>
+      <view class="subtitle">Your AI Tennis Partner</view>
+    </view>
+    <view class="suggestions-grid">
+      <view class="suggestion-card" bindtap="onSuggestionTap" data-text="分析我的比赛">
+        <image class="suggestion-icon" src="/images/analyze.png"></image>
+        <text class="suggestion-text">分析我的比赛</text>
+      </view>
+      <view class="suggestion-card" bindtap="onSuggestionTap" data-text="制定训练计划">
+        <image class="suggestion-icon" src="/images/plan.png"></image>
+        <text class="suggestion-text">制定训练计划</text>
+      </view>
+      <view class="suggestion-card" bindtap="onSuggestionTap" data-text="寻找附近球场">
+        <image class="suggestion-icon" src="/images/court.png"></image>
+        <text class="suggestion-text">寻找附近球场</text>
+      </view>
+      <view class="suggestion-card" bindtap="onSuggestionTap" data-text="学习网球技巧">
+        <image class="suggestion-icon" src="/images/learn.png"></image>
+        <text class="suggestion-text">学习网球技巧</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Chat History -->
+  <scroll-view wx:else scroll-y="true" class="chat-history" scroll-into-view="{{'msg-' + (messages.length - 1)}}">
+    <view wx:for="{{messages}}" wx:key="index" id="{{'msg-' + index}}" class="message-wrapper">
+      <view class="message {{item.sender}}">
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- Input Area -->
+  <view class="chat-input-area">
+    <input class="chat-input" bindinput="onInput" value="{{inputValue}}" placeholder="和我聊聊网球..."/>
+    <button class="send-button" bindtap="sendMessage">发送</button>
+  </view>
+</view>

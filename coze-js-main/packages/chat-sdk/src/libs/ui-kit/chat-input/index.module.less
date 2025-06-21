@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  color: var(--chat-font-color-input, rgb(28, 31, 35));
+
+  .audio {
+    flex: 1;
+  }
+
+  .chat-input-container {
+    flex: 1;
+    border-radius: 25px;
+    box-sizing: border-box;
+    backdrop-filter: blur(37.5px);
+    border: 1px solid
+      var(--chat-bg-border-color-default, rgba(58, 85, 138, 0.25));
+    background-color: var(--chat-bg-color-input, #fff);
+
+    z-index: 10;
+    overflow: visible;
+
+    .chat-input-content {
+      min-height: 48px;
+      padding: 0 12px 0 20px;
+      align-items: flex-end;
+    }
+
+    .op-container {
+      height: 48px;
+    }
+
+    .divider {
+      height: 13px;
+      border-left: 1px solid
+        var(--chat-bg-border-color-light, rgba(28, 31, 35, 0.08));
+      margin: 0 4px;
+    }
+
+    &.focused {
+      border-color: var(--chat-bg-border-color-hglt, rgba(78, 64, 229));
+    }
+
+    &.audio-recording {
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &.multi-mode-message {
+      border-radius: 12px;
+    }
+  }
+}

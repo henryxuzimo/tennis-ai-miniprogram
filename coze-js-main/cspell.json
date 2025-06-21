@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "caseSensitive": false,
+  "words": [
+    "packagejson",
+    "pkce",
+    "PKCE",
+    "preinstall",
+    "undici",
+    "Websockets",
+    "chatflow",
+    "AIDenoiserExtension",
+    "denoiser",
+    "Denoising",
+    "simult"
+  ],
+  "ignoreWords": [],
+  "import": []
+}

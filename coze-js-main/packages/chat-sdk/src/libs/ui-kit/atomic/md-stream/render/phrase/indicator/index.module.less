@@ -1,0 +1,38 @@
+@keyframes indicator-frame {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: currentColor;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+.indicator {
+  position: relative;
+  display: inline-block;
+  line-height: var(--md-stream-line-height-default, 22px);
+  width: 18px;
+  white-space: pre-wrap;
+  &:before {
+    content: '';
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-left: 5px;
+    margin-top: -3px;
+
+    animation: indicator-frame.8s infinite alternate;
+    animation-timing-function: ease;
+  }
+  &::after {
+    content: ' ';
+    display: inline-block;
+  }
+}

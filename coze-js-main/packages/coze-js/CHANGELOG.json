@@ -1,0 +1,513 @@
+{
+  "name": "@coze/api",
+  "entries": [
+    {
+      "version": "1.3.1",
+      "tag": "HEAD",
+      "date": "2025-06-19T09:41:14.867Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Use transferable objects when posting audio buffers to avoid data copying"
+          },
+          {
+            "comment": "refactor and fix aec bug on HarmonyOS"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Publish feat/refactor"
+          },
+          {
+            "comment": "Fix sentence bug"
+          },
+          {
+            "comment": "Publish feat/rtc-test"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.3.0",
+      "tag": "HEAD",
+      "date": "2025-06-17T03:59:36.520Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "setup release config"
+          },
+          {
+            "comment": "convert JavaScript files to TypeScript"
+          },
+          {
+            "comment": "add test code"
+          },
+          {
+            "comment": "cr bug"
+          },
+          {
+            "comment": "test error"
+          },
+          {
+            "comment": "rename LocalLookback to LocalLoopback and fix typos"
+          },
+          {
+            "comment": "deviceId error"
+          },
+          {
+            "comment": "eslint bug"
+          },
+          {
+            "comment": "move"
+          },
+          {
+            "comment": "CR bug"
+          },
+          {
+            "comment": "Publish feat/voiceprint"
+          },
+          {
+            "comment": "Fix Websoket  bug in Uniapp"
+          },
+          {
+            "comment": "fix sample_rate error"
+          },
+          {
+            "comment": "Publish feat/weex-realtime"
+          },
+          {
+            "comment": "Fix microphone permission check in browsers without permissions API"
+          },
+          {
+            "comment": "Fix type error"
+          },
+          {
+            "comment": "security bug"
+          },
+          {
+            "comment": "Publish fix/bug"
+          },
+          {
+            "comment": "Upgrade vitest to version 2.1.9 for security bug"
+          },
+          {
+            "comment": "workflow resumt bug"
+          },
+          {
+            "comment": "implement audioDeltaList for sequential audio processing"
+          },
+          {
+            "comment": "Publish fix/uniapp-api"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "improve LocalLookback implementation"
+          },
+          {
+            "comment": "Add unit test"
+          },
+          {
+            "comment": "Add Users API with me() method, support chat with files/images"
+          },
+          {
+            "comment": "improve authentication error handling for regional base URLs"
+          },
+          {
+            "comment": "add room mode configuration option"
+          },
+          {
+            "comment": "init project"
+          },
+          {
+            "comment": "chat websocket support opus coder"
+          },
+          {
+            "comment": "chat websocket support g711a&g711u coder"
+          },
+          {
+            "comment": "Add G.711a and G.711u codec support to WavStreamPlayer"
+          },
+          {
+            "comment": "Add prologue content support"
+          },
+          {
+            "comment": "optimize local audio loopback and chat client config"
+          },
+          {
+            "comment": "Add client_interrupt support"
+          },
+          {
+            "comment": "add sentence-level audio streaming support"
+          },
+          {
+            "comment": "Add query params"
+          },
+          {
+            "comment": "simult interpretation"
+          },
+          {
+            "comment": "add translation and audio playback controls"
+          },
+          {
+            "comment": "add simult example"
+          },
+          {
+            "comment": "add speech rate and opus config support"
+          },
+          {
+            "comment": "Add coze uniapp api support"
+          },
+          {
+            "comment": "Add Variables api"
+          },
+          {
+            "comment": "Add voiceprint API"
+          },
+          {
+            "comment": "Add onApiError callback option to ClientOptions and RequestOptions interfaces"
+          },
+          {
+            "comment": "add voice print group support and move turn detection to event input"
+          },
+          {
+            "comment": "Fix ci bug"
+          },
+          {
+            "comment": "Add voiceprint Readme"
+          },
+          {
+            "comment": "UI and websocket improvements"
+          },
+          {
+            "comment": "Add Websocket WebSocket implementation for better UniApp compatibility"
+          },
+          {
+            "comment": "Fix unit test error"
+          },
+          {
+            "comment": "Add PcmRecorder & Transcription API"
+          },
+          {
+            "comment": "Add WsChatClient  API"
+          },
+          {
+            "comment": "fix ci bug"
+          },
+          {
+            "comment": "Add screen sharing event support and downgrade RTC SDK"
+          },
+          {
+            "comment": "typo issue for chat api in @coze/api"
+          },
+          {
+            "comment": " feat: Implement playback volume control"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.2.0",
+      "tag": "HEAD",
+      "date": "2025-04-16T08:04:59.915Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "add local plugin example  for chat API"
+          },
+          {
+            "comment": "Add websocket realtime demo"
+          },
+          {
+            "comment": "add       echoCancellation support"
+          },
+          {
+            "comment": "add chat realtime demo"
+          },
+          {
+            "comment": "tmp"
+          },
+          {
+            "comment": "add transcription SDK and update documentation"
+          },
+          {
+            "comment": "UI/UX improvements to realtime-websocket example"
+          },
+          {
+            "comment": "add default audio mute option and improve audio handling"
+          },
+          {
+            "comment": "Add coze uniapp api support"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "replace MediaRecorder with Web Audio API for PCM recording"
+          },
+          {
+            "comment": "eslint"
+          },
+          {
+            "comment": "move new project"
+          },
+          {
+            "comment": "rush build error"
+          },
+          {
+            "comment": "add unit test"
+          },
+          {
+            "comment": "add test code"
+          },
+          {
+            "comment": "renmae"
+          },
+          {
+            "comment": "unit test"
+          },
+          {
+            "comment": "remove unpkg"
+          },
+          {
+            "comment": "Publish feat/realtime-quickstart"
+          },
+          {
+            "comment": "CR bug"
+          },
+          {
+            "comment": "update ESM file extensions from .js to .mjs"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.1.1",
+      "tag": "HEAD",
+      "date": "2025-03-31T02:31:36.411Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add playback timing and state management"
+          },
+          {
+            "comment": "update README.md"
+          },
+          {
+            "comment": "add unit test"
+          },
+          {
+            "comment": "add screen sharing support and video device persistence"
+          },
+          {
+            "comment": "add WebSocket speech and transcription clients"
+          },
+          {
+            "comment": "ws-tools rslib config"
+          },
+          {
+            "comment": "Update readme"
+          },
+          {
+            "comment": "feat: add async workflow execution and history tracking"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Hard code test_app_id for Debug"
+          },
+          {
+            "comment": "CR bug"
+          },
+          {
+            "comment": "add unit test"
+          },
+          {
+            "comment": "Websocket bug"
+          },
+          {
+            "comment": "Add shortcut command support and update file object types"
+          },
+          {
+            "comment": "Add unit test"
+          },
+          {
+            "comment": "Remove type: module from package.json files"
+          },
+          {
+            "comment": "file path error"
+          },
+          {
+            "comment": "fix speech bug"
+          },
+          {
+            "comment": "Publish fix/speech"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.21",
+      "tag": "HEAD",
+      "date": "2025-02-24T12:07:56.836Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "eslint处理"
+          },
+          {
+            "comment": "修改问题"
+          },
+          {
+            "comment": "add proxy example for coze-api"
+          },
+          {
+            "comment": "add accountId support for JWT token generation"
+          },
+          {
+            "comment": "Add  plugin_id_list and workflow_id_list to UpdateBotReq"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "change document list endpoint from GET to POST"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.20",
+      "tag": "HEAD",
+      "date": "2025-02-12T08:07:08.384Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add Websocket Support"
+          },
+          {
+            "comment": "add realtime-quickstart-react & quickstart-oauth-server demo"
+          },
+          {
+            "comment": "add WebSocket chat examples and documentation"
+          },
+          {
+            "comment": "add workflow ID support to realtime console"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Fix  chat-x websocket  bug"
+          },
+          {
+            "comment": "Add workspaceId to getWebAuthenticationUrl"
+          },
+          {
+            "comment": "add unit test"
+          },
+          {
+            "comment": "Add error handling for JWT token exchange"
+          },
+          {
+            "comment": "Add Windows-specific environment variable commands for CMD and PowerShell"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.19",
+      "tag": "HEAD",
+      "date": "2025-02-07T03:06:20.888Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "downgrade node-fetch from ^3.3.2 to ^2.7.0"
+          },
+          {
+            "comment": "downgrade node-fetch from ^3.3.2 to ^2.x"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.18",
+      "tag": "HEAD",
+      "date": "2025-02-06T10:36:15.097Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "update error handling and remove help_doc field"
+          },
+          {
+            "comment": "voice ASR bug"
+          },
+          {
+            "comment": "fix version"
+          },
+          {
+            "comment": "add test code"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "add translation api"
+          },
+          {
+            "comment": "Add description and space_id parameters to voices.clone api"
+          },
+          {
+            "comment": "coze-js remove import .js"
+          },
+          {
+            "comment": "@coze/api 源码引入到coze-js-web、coze-js-node"
+          },
+          {
+            "comment": "rebase 0109"
+          },
+          {
+            "comment": "cozePublishConfig"
+          },
+          {
+            "comment": "rebase 0113"
+          },
+          {
+            "comment": "add node-fetch for streaming support in older Node.js  versions"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.16",
+      "tag": "HEAD",
+      "date": "2025-01-09T02:43:30.468Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "add Chinese translations for README files"
+          },
+          {
+            "comment": "update to dist dep"
+          },
+          {
+            "comment": "setup correct versions"
+          },
+          {
+            "comment": "support nodejs 16 version when  using crypto"
+          },
+          {
+            "comment": "bump version"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "Add browser user agent and template support"
+          },
+          {
+            "comment": "add chat workflow support"
+          },
+          {
+            "comment": "add image dataset support and improve dataset APIs"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+/* pages/chat/chat.wxss */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.chat-history {
+  flex: 1;
+  padding: 20rpx;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #f4f4f4;
+}
+
+.message-wrapper {
+  margin-bottom: 20rpx;
+  display: flex;
+}
+
+.message {
+  padding: 20rpx;
+  border-radius: 10rpx;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.user {
+  background-color: #95ec69;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.bot {
+  background-color: #ffffff;
+  align-self: flex-start;
+}
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-top: 1rpx solid #dcdcdc;
+  background-color: #ffffff;
+}
+
+.chat-input {
+  flex: 1;
+  height: 88rpx;
+  background-color: #f4f4f4;
+  border-radius: 44rpx;
+  padding: 0 30rpx;
+  margin-right: 20rpx;
+}
+
+.send-button {
+  width: 110rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  background-color: #1296db;
+  color: white;
+  border-radius: 36rpx;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Welcome Screen Styles */
+.welcome-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 80rpx;
+}
+
+.main-title {
+  font-size: 64rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitle {
+  font-size: 32rpx;
+  color: #888;
+  margin-top: 10rpx;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30rpx;
+  width: 100%;
+}
+
+.suggestion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30rpx;
+  background-color: #f7f7f7;
+  border-radius: 20rpx;
+  height: 180rpx;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.suggestion-icon {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.suggestion-text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+} 

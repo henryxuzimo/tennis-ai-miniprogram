@@ -1,0 +1,87 @@
+{
+  "name": "@coze/realtime-api",
+  "version": "1.3.0",
+  "description": "A powerful real-time communication SDK for voice interactions with Coze AI bots | 扣子官方实时通信 SDK，用于与 Coze AI bots 进行语音交互",
+  "keywords": [
+    "coze",
+    "ai",
+    "realtime",
+    "voice",
+    "rtc",
+    "asr",
+    "tts",
+    "ai-agent",
+    "voice-synthesis"
+  ],
+  "homepage": "https://github.com/coze-dev/coze-js/packages/realtime-api",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coze-dev/coze-js.git",
+    "directory": "packages/realtime-api"
+  },
+  "license": "MIT",
+  "author": "jackshen <jackshen310@gmail.com>",
+  "exports": {
+    ".": "./src/index.ts",
+    "./event-names": "./src/event-names.ts"
+  },
+  "main": "src/index.ts",
+  "unpkg": "dist/umd/index.js",
+  "module": "src/index.ts",
+  "types": "./src/index.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "buildAll": "npm run build && cd ../../examples/realtime-console && npm run build",
+    "demo": "npm run start & cd ../../examples/realtime-console && npm run start",
+    "format": "prettier --write .",
+    "lint": "eslint ./ --cache --quiet",
+    "start": "rslib build -w",
+    "test": "vitest",
+    "test:cov": "vitest --coverage --run"
+  },
+  "dependencies": {
+    "@coze/api": "workspace:*",
+    "@volcengine/rtc": "~4.62.11"
+  },
+  "devDependencies": {
+    "@coze-infra/eslint-config": "workspace:*",
+    "@coze-infra/ts-config": "workspace:*",
+    "@coze-infra/vitest-config": "workspace:*",
+    "@rslib/core": "0.0.18",
+    "@swc/core": "^1.3.14",
+    "@types/node": "^20",
+    "@types/uuid": "^9.0.1",
+    "@types/whatwg-fetch": "^0.0.33",
+    "@vitest/coverage-v8": "~2.1.9",
+    "axios": "^1.7.7",
+    "typescript": "^5.5.3",
+    "vitest": "~2.1.9"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "cozePublishConfig": {
+    "exports": {
+      ".": {
+        "require": "./dist/cjs/index.js",
+        "import": "./dist/esm/index.js",
+        "types": "./dist/types/index.d.ts"
+      },
+      "./event-names": {
+        "require": "./dist/cjs/event-names/index.js",
+        "import": "./dist/esm/event-names/index.js",
+        "types": "./dist/types/event-names/event-names.d.ts"
+      }
+    },
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "typings": "dist/types/index.d.ts"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "plugins",
+  "version": "1.0.0",
+  "private": true,
+  "author": "fanwenjie.fe@bytedance.com",
+  "maintainers": [
+    "fanwenjie.fe@bytedance.com"
+  ],
+  "dependencies": {
+    "@coze-arch/rush-publish-plugin": "0.0.5",
+    "@coze-infra/rush-x": "link:../../../infra/rush-x",
+    "typescript": "~5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3"
+  }
+}

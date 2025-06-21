@@ -1,0 +1,192 @@
+{
+  "name": "@coze/realtime-api",
+  "entries": [
+    {
+      "version": "1.3.0",
+      "tag": "HEAD",
+      "date": "2025-06-17T03:59:36.523Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "setup release config"
+          },
+          {
+            "comment": "Publish feat/device"
+          },
+          {
+            "comment": "add test code"
+          },
+          {
+            "comment": "Fix share screen bug"
+          },
+          {
+            "comment": "Upgrade vitest to version 2.1.9 for security bug"
+          },
+          {
+            "comment": "Add TrackEnded event"
+          },
+          {
+            "comment": "Added await for setVideoInputDevice to ensure proper async handling"
+          },
+          {
+            "comment": "enhance video state management and error handling"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "Support mobile device front/back camera selection with friendly labels"
+          },
+          {
+            "comment": "add room mode configuration option"
+          },
+          {
+            "comment": "Add ROOM_INFO event to expose room connection details"
+          },
+          {
+            "comment": "Add prologue content support"
+          },
+          {
+            "comment": "Add some event names"
+          },
+          {
+            "comment": "Add screen sharing event support and downgrade RTC SDK"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.2.0",
+      "tag": "HEAD",
+      "date": "2025-04-16T08:04:59.914Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "add test code"
+          },
+          {
+            "comment": "move EventNames enum to separate file"
+          },
+          {
+            "comment": "Publish fix/module-error"
+          },
+          {
+            "comment": "normalize file extensions in package config"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "UI/UX improvements to realtime-websocket example"
+          },
+          {
+            "comment": "add error handling for non-stationary noise suppression"
+          },
+          {
+            "comment": "add event-names subpath export"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.1.1",
+      "tag": "HEAD",
+      "date": "2025-03-31T02:31:36.414Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "add mobile support and network error handling"
+          },
+          {
+            "comment": "add getRoomInfo customization option to RealtimeClient"
+          },
+          {
+            "comment": "add screen sharing support and video device persistence"
+          },
+          {
+            "comment": "Add test code"
+          },
+          {
+            "comment": "add unit test"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "Hard code test_app_id for Debug"
+          },
+          {
+            "comment": "add unit test"
+          },
+          {
+            "comment": "Remove type: module from package.json files"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.5",
+      "tag": "HEAD",
+      "date": "2025-02-12T08:07:08.387Z",
+      "comments": {
+        "minor": [
+          {
+            "comment": "add custom user ID and conversation ID support"
+          },
+          {
+            "comment": "realtime-api 源码引入到 examples"
+          },
+          {
+            "comment": "rebase 0109"
+          },
+          {
+            "comment": "cozePublishConfig"
+          },
+          {
+            "comment": "taro dev source"
+          },
+          {
+            "comment": "feat: add getRtcEngine method to expose RTC engine instance"
+          },
+          {
+            "comment": "add workflow ID support to realtime console"
+          }
+        ],
+        "patch": [
+          {
+            "comment": "add test code"
+          },
+          {
+            "comment": "Add Windows-specific environment variable commands for CMD and PowerShell"
+          }
+        ]
+      }
+    },
+    {
+      "version": "1.0.4",
+      "tag": "HEAD",
+      "date": "2025-01-09T02:43:30.471Z",
+      "comments": {
+        "patch": [
+          {
+            "comment": "add Chinese translations for README files"
+          },
+          {
+            "comment": "update to dist dep"
+          },
+          {
+            "comment": "setup correct versions"
+          },
+          {
+            "comment": "screen sharing bug"
+          },
+          {
+            "comment": "Add check for video support before throwing device error"
+          }
+        ],
+        "minor": [
+          {
+            "comment": "add screen sharing support to realtime API"
+          }
+        ]
+      }
+    }
+  ]
+}

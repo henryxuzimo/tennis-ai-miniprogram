@@ -1,0 +1,57 @@
+name: Release Pipeline
+
+on:
+  push:
+    branches:
+      - 'release/**'
+
+jobs:
+  publish:
+    strategy:
+      matrix:
+        include:
+          - NodeVersion: 20.14.x
+            NodeVersionDisplayName: 20
+            OS: ubuntu-latest
+    name: Node.js v${{ matrix.NodeVersionDisplayName }} (${{ matrix.OS }})
+    runs-on: ${{ matrix.OS }}
+    if: github.repository == 'coze-dev/coze-js'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Config Git User
+        run: |
+          git config --local user.name "tecvan"
+          git config --local user.email "tecvan.fe@gmail.com"
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.NodeVersion }}
+          registry-url: 'https://registry.npmjs.org'
+          node-version-file: '.nvmrc'
+
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            common/temp/pnpm-local
+            common/temp/pnpm-store
+            common/temp/install-run
+          key: ${{ runner.os }}-rush-store-${{ hashFiles('common/config/subspaces/**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-rush-store-main
+            ${{ runner.os }}-rush-store
+
+      - name: Install Dependencies
+        run: |
+          npm i -g @microsoft/rush@5.150.0
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev
+          node common/scripts/install-run-rush.js install
+
+      - name: Run Release
+        run: node common/scripts/install-run-rush.js release --commit ${{ github.event.head_commit.id }}
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
