@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A proxy server for Coze API to support streaming in WeChat Mini Program.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +11,7 @@
   "dependencies": {
     "express": "^4.19.2",
     "cors": "^2.8.5",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^3.3.2"
   },
   "author": "",
   "license": "ISC"

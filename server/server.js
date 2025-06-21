@@ -1,11 +1,15 @@
-const express = require('express');
-const fetch = require('node-fetch');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
+import express from 'express';
+import fetch from 'node-fetch';
+import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const CONFIG_PATH = path.join(__dirname, 'config.json');
 
 app.use(cors());
