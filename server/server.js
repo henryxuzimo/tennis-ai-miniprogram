@@ -1,12 +1,8 @@
-import express from 'express';
-import fetch from 'node-fetch';
-import cors from 'cors';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,59 +12,55 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-// Function to read config
 const readConfig = () => {
     return JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf-8'));
 };
 
-// Main chat proxy endpoint
 app.post('/chat', async (req, res) => {
-    console.log(`[${new Date().toISOString()}] Received /chat request with query: "${req.body.query}"`);
-
+    console.log(`[${new Date().toISOString()}] Received /chat request`);
     const { query, user, chat_history } = req.body;
     const { bot_id, token } = readConfig();
 
     try {
-        const cozeResponse = await fetch('https://api.coze.cn/open_api/v2/chat', {
+        const response = await axios({
             method: 'POST',
+            url: 'https://api.coze.cn/open_api/v2/chat',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
-                'Accept': '*/*',
-                'Host': 'api.coze.cn',
-                'Connection': 'keep-alive'
+                'Accept': 'text/event-stream',
             },
-            body: JSON.stringify({
+            data: {
                 bot_id,
                 user,
                 query,
                 chat_history: chat_history || [],
                 stream: true,
-            }),
+            },
+            responseType: 'stream', // This is crucial for axios to handle the response as a stream
         });
-        
-        console.log(`[${new Date().toISOString()}] Coze API responded with status: ${cozeResponse.status}`);
 
-        if (!cozeResponse.ok) {
-            const errorText = await cozeResponse.text();
-            console.error(`[ERROR] Coze API error: ${cozeResponse.status}`, errorText);
-            return res.status(502).send(`Coze API Error: ${errorText}`);
-        }
+        console.log(`[${new Date().toISOString()}] Coze API responded with status: ${response.status}`);
         
-        // Manually handle the stream instead of piping
         res.setHeader('Content-Type', 'text/event-stream');
         res.setHeader('Cache-Control', 'no-cache');
         res.setHeader('Connection', 'keep-alive');
 
-        for await (const chunk of cozeResponse.body) {
-            res.write(chunk);
-        }
-        res.end();
+        response.data.pipe(res);
+
+        response.data.on('error', (err) => {
+            console.error('[ERROR] Stream pipe error:', err);
+            res.end();
+        });
 
     } catch (error) {
-        console.error('[FATAL] Error in /chat endpoint:', error);
-        res.status(500).send('Internal Server Error');
+        if (error.response) {
+            console.error(`[FATAL] Coze API Error: ${error.response.status}`, error.response.data);
+            res.status(502).send(error.response.data);
+        } else {
+            console.error('[FATAL] Internal Server Error:', error.message);
+            res.status(500).send('Internal Server Error');
+        }
     }
 });
 
@@ -117,7 +109,6 @@ app.get('/admin', (req, res) => {
                     messageDiv.className = 'message success';
                 }
                 
-                // Fetch current config to populate form
                 fetch('/get-config')
                     .then(res => res.json())
                     .then(data => {
