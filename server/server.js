@@ -20,6 +20,8 @@ const readConfig = () => {
 
 // Main chat proxy endpoint
 app.post('/chat', async (req, res) => {
+    console.log(`[${new Date().toISOString()}] Received /chat request with query: "${req.body.query}"`);
+
     const { query, user, chat_history } = req.body;
     const { bot_id, token } = readConfig();
 
@@ -42,13 +44,33 @@ app.post('/chat', async (req, res) => {
             }),
         });
         
-        // Pipe the stream from Coze API to the client
+        console.log(`[${new Date().toISOString()}] Coze API responded with status: ${cozeResponse.status}`);
+
+        if (!cozeResponse.ok) {
+            const errorText = await cozeResponse.text();
+            console.error(`[ERROR] Coze API error: ${cozeResponse.status}`, errorText);
+            return res.status(502).send(`Coze API Error: ${errorText}`);
+        }
+        
         res.setHeader('Content-Type', 'text/event-stream');
+        
+        cozeResponse.body.on('error', (err) => {
+            console.error('[ERROR] Error from Coze response stream:', err);
+            if (!res.headersSent) {
+                res.status(500).send('Stream error from Coze');
+            }
+            res.end();
+        });
+        
+        res.on('error', (err) => {
+            console.error('[ERROR] Error writing to client response stream:', err);
+        });
+
         cozeResponse.body.pipe(res);
 
     } catch (error) {
-        console.error('Error proxying to Coze API:', error);
-        res.status(500).send('Error connecting to Coze API');
+        console.error('[FATAL] Error in /chat endpoint:', error);
+        res.status(500).send('Internal Server Error');
     }
 });
 
