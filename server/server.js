@@ -56,21 +56,15 @@ app.post('/chat', async (req, res) => {
             return res.status(502).send(`Coze API Error: ${errorText}`);
         }
         
+        // Manually handle the stream instead of piping
         res.setHeader('Content-Type', 'text/event-stream');
-        
-        cozeResponse.body.on('error', (err) => {
-            console.error('[ERROR] Error from Coze response stream:', err);
-            if (!res.headersSent) {
-                res.status(500).send('Stream error from Coze');
-            }
-            res.end();
-        });
-        
-        res.on('error', (err) => {
-            console.error('[ERROR] Error writing to client response stream:', err);
-        });
+        res.setHeader('Cache-Control', 'no-cache');
+        res.setHeader('Connection', 'keep-alive');
 
-        cozeResponse.body.pipe(res);
+        for await (const chunk of cozeResponse.body) {
+            res.write(chunk);
+        }
+        res.end();
 
     } catch (error) {
         console.error('[FATAL] Error in /chat endpoint:', error);
