@@ -1,7 +1,0 @@
-{
-  "extends": "../ts-config/tsconfig.node.json",
-  "compilerOptions": {
-    "noEmit": true
-  },
-  "include": ["src/**/*", "eslint.*.js"]
-}
